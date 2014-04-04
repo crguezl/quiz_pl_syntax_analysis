@@ -1,0 +1,690 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REPASO. 2ª PARTE. <br />
+ANÁLISIS SINTÁCTICO</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- -->
+    <style type="text/css" media="all">
+      div.quiz, p.comment, div.explanation {display:inline;}
+      strong.correct {color:#14B63F;}
+      strong.incorrect {color:rgb(255,0,0);}
+      strong.mark {color:rgb(255,128,0);}
+      input.correct {color:#14B63F; font-weight: bold;}
+      input.incorrect {color:rgb(255,0,0); font-weight: bold;}
+      div.custom-header {background-color:#7a3b7a; color:#FFFFFF; font-weight: bold;}
+      body {padding-top: 20px; padding-bottom: 20px; margin-bottom: 20px;}
+      html {position: relative; min-height: 100%;}
+      .navbar {margin-bottom: 20px;}
+      .btn-footer {text-align: center;}
+      #footer {
+        position: absolute;
+        bottom: 0;
+        height: 30px;
+        width: inherit;
+      }
+      div.container {background-color:#EAEAEA;}
+      div.explanation {font-style: italic;}
+      .nav>li>a.links {
+        display: inline; 
+        padding: 0; 
+        color: #FFFFFF;
+      }
+      .nav>li>a.links:hover {color: #FFCCFF;}
+      /* Inputs size */
+      input.size-3 { width: 3em; }
+
+input.size-4 { width: 4em; }
+
+input.size-5 { width: 5em; }
+
+input.size-6 { width: 6em; }
+
+input.size-7 { width: 7em; }
+
+input.size-9 { width: 9em; }
+
+input.size-10 { width: 10em; }
+
+input.size-11 { width: 11em; }
+
+input.size-12 { width: 12em; }
+
+input.size-13 { width: 13em; }
+
+input.size-14 { width: 14em; }
+
+input.size-15 { width: 15em; }
+
+    </style>
+    <!-- Any CSS included by the user -->
+    
+    <!-- Mathjax -->
+    
+        <script type=text/javascript src=http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script>
+        <script type=text/javascript>
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+      
+    <!--         -->
+  </head>
+  <body>
+    <div class="container">
+      
+        <div class="navbar navbar-default custom-header">
+          <div class="navbar-header">
+            <h3>REPASO. 2ª PARTE. <br />
+ANÁLISIS SINTÁCTICO</h3>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>Asignatura: TFG</li><br/>
+              <li>Curso: 4º</li><br/>
+              <li>
+                <a href="http://www.ull.es/view/centros/etsii/Inicio/es" class="links">
+                  Escuela T&eacute;cnica Superior de Ingenier&iacute;a Inform&aacute;tica</a>
+                |
+                <a href="http://www.ull.es/" class="links">Universidad de la Laguna</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+      <!-- Seed: 37487587813744193971074685324247538291 -->
+<form id="form">
+  <ol class="questions">
+    <li id="question-0" class="question fillin ">
+      <div class="quiz text">
+[1 point] 
+Dado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:
+\( A^* = \cup_{n=1}^{\infty} A^n \)
+Se admite que $A^0 = { \epsilon }$, donde $\epsilon$ denota la
+<input type=text id=qfi1-1 class='fillin size-15'></input> <input type=text id=qfi1-2 class='fillin size-3'></input> esto es
+la palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$<div id=qfi1-2r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-1" class="question fillin ">
+      <div class="quiz text">
+[1 point] 
+Una producción de la forma $A \rightarrow A \alpha$.
+se dice que es <input type=text id=qfi2-1 class='fillin size-9'></input> por la <input type=text id=qfi2-2 class='fillin size-9'></input>
+<div id=qfi2-2r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-2" class="question fillin ">
+      <div class="quiz text">
+[1 point] 
+Recuerde el <b>analizador sintáctico descendente predictivo recursivo</b> 
+para la <a id="grammar">gramática</a>:<br/>
+<ul>
+  <li> $\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$
+  <li> $V = { statements, statement, condition, expression, term, factor }$
+  <li> Productions:
+  <ol>
+    <li>
+    statements  $ \rightarrow$ statement ';' statements  $\vert$ statement
+    <li>
+    statement  $ \rightarrow$ ID '=' expression  $\vert$ P expression
+ $ \vert$ IF condition THEN statement·
+    <li> condition $ \rightarrow$ expression COMPARISON expression
+    <li>
+    expression  $ \rightarrow$ term ADDOP expression  $\vert$ term
+    <li>
+    term  $ \rightarrow$ factor MULOP term  $\vert$ factor
+    <li>
+    factor  $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM
+  </ol>
+  <li> Start symbol: $statements$
+</ul>
+Rellene las partes que faltan de código CoffeeScript del 
+método que se encarga de reconocer el lenguaje generado
+por <tt>expression</tt>:
+<pre>
+  expression = ->
+    result = term()
+    while <input type=text id=qfi3-1 class='fillin size-9'></input> and <input type=text id=qfi3-2 class='fillin size-14'></input> is "ADDOP"
+      type = <input type=text id=qfi3-3 class='fillin size-9'></input>.<input type=text id=qfi3-4 class='fillin size-5'></input>
+      match "ADDOP"
+      right = <input type=text id=qfi3-5 class='fillin size-6'></input>
+      result =
+        type: <input type=text id=qfi3-6 class='fillin size-4'></input>
+        left: result
+        right: right
+    result
+</pre>
+<div id=qfi3-6r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-3" class="question fillin ">
+      <div class="quiz text">
+[3 points] 
+Rellene las partes que faltan de código CoffeeScript del 
+método que se encarga de reconocer el lenguaje generado
+por <tt>statement</tt> para la <a href="#grammar">gramática
+definida anteriormente</a>:
+<pre>
+  statement = ->
+    result = null
+    if <input type=text id=qfi4-1 class='fillin size-9'></input> and <input type=text id=qfi4-2 class='fillin size-9'></input>.<input type=text id=qfi4-3 class='fillin size-4'></input> is "ID"
+      left =
+        type: "ID"
+        value: <input type=text id=qfi4-4 class='fillin size-9'></input>.<input type=text id=qfi4-5 class='fillin size-5'></input>
+
+      match "ID"
+      match "="
+      right = <input type=text id=qfi4-6 class='fillin size-10'></input>()
+      result =
+        type: "="
+        left: left
+        right: right
+    else if lookahead and lookahead.type is "P"
+      match "P"
+      right = <input type=text id=qfi4-7 class='fillin size-12'></input>
+      result =
+        type: "P"
+        value: right
+    else if lookahead and lookahead.type is "IF"
+      match "IF"
+      left = <input type=text id=qfi4-8 class='fillin size-11'></input>
+      match "THEN"
+      right = <input type=text id=qfi4-9 class='fillin size-11'></input>
+      result =
+        type: "IF"
+        left: left
+        right: right
+    else # Error!
+      throw "Syntax Error. Expected identifier but found " + 
+        (if lookahead then lookahead.value else "end of input") + 
+        " near '#{input.substr(lookahead.from)}'"
+    result
+
+</pre>
+<div id=qfi4-9r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-4" class="question fillin ">
+      <div class="quiz text">
+[1 point] Rellene las partes que faltan del código CoffeeScript
+que reconoce el sublenguaje generado por <i>condition</i>:
+  <pre>
+  condition = ->
+    left = <input type=text id=qfi5-1 class='fillin size-11'></input>
+    type = <input type=text id=qfi5-2 class='fillin size-9'></input>.<input type=text id=qfi5-3 class='fillin size-5'></input>
+    match "COMPARISON"
+    right = <input type=text id=qfi5-4 class='fillin size-10'></input>()
+    result =
+      type: type
+      left: left
+      right: right
+    result
+  </pre>
+<div id=qfi5-4r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-5" class="question fillin ">
+      <div class="quiz text">
+[1 point] 
+Complete este fragmento de <tt>slim</tt> que establece el favicon de 
+la página HTML:
+<pre>
+    link rel="<input type=text id=qfi6-1 class='fillin size-13'></input>" type="image/jpg" href="images/favicon.jpg"
+</pre><div id=qfi6-1r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-6" class="question fillin ">
+      <div class="quiz text">
+[6 points] 
+      Para que un repositorio con una aplicación escrita en Ruby-Sinatra
+      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:
+      <pre>
+      heroku <input type=text id=qfi7-1 class='fillin size-6'></input> <input type=text id=qfi7-2 class='fillin size-6'></input>
+      </pre>
+      Este comando crea un remoto git cuyo nombre es <input type=text id=qfi7-3 class='fillin size-6'></input>
+      y cuya URL es 
+      <pre>
+        git@heroku.com:<input type=text id=qfi7-4 class='fillin size-7'></input>.git
+      </pre>
+      La URL de publicación/despliegue será:
+      http://<input type=text id=qfi7-5 class='fillin size-9'></input>.<input type=text id=qfi7-6 class='fillin size-9'></input>.com/
+      <br/>
+      Una vez que todo esta listo, para publicar nuestra versión
+      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:
+      <pre>
+      git <input type=text id=qfi7-7 class='fillin size-4'></input> <input type=text id=qfi7-8 class='fillin size-6'></input> master
+      <br/>
+      </pre>
+      Si la versión que queremos publicar en heroku no está en la rama
+      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos 
+      modificar el comando anterior:
+      <pre>
+      git push <input type=text id=qfi7-9 class='fillin size-6'></input> <input type=text id=qfi7-10 class='fillin size-4'></input>:<input type=text id=qfi7-11 class='fillin size-6'></input>
+      </pre>
+    <div id=qfi7-11r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-7" class="question fillin ">
+      <div class="quiz text">
+[1 point] Con que subcomando del cliente <tt>heroku</tt> abro el navegador
+    en la URL del proyecto?<br/>
+    <pre>
+    heroku <input type=text id=qfi8-1 class='fillin size-4'></input>
+    </pre><div id=qfi8-1r class=quiz></div></br></br>      </div>
+    </li>
+  </ol>
+  <div class="btn-footer">
+    <button type="button" id="submit" class="btn btn-primary">
+Submit    </button>
+    <button type="button" id="reset" class="btn btn-warning">
+Reset    </button>
+    <button type="button" id="deletestorage" class="btn btn-danger">
+Delete storage    </button>
+  </div>
+</form>
+
+      
+        <div id="footer">
+          <div class="row text-muted">
+            <div class="col-md-6">
+              Quiz generated using the RuQL Gem. For more information, visit <a href="https://github.com/jjlabrador/ruql">GitHub
+              <span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+              Universidad de La Laguna 2014
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+    
+        <script type=text/javascript src=http://code.jquery.com/jquery-2.1.0.min.js></script>
+        <!--[if lt IE 8]>
+          <script type=text/javascript src=http://code.jquery.com/jquery-1.11.0.min.js></script>
+        <![endif]-->
+      
+    <!-- Codehelper -->
+    <script type=text/javascript src=http://www.codehelper.io/api/ips/?js></script>
+    <!-- Internationalization -->
+    <script>      i18n = {};
+      i18n['ES'] = {}
+      i18n['ES']['correct'] = "Correcto";
+      i18n['ES']['incorrect'] = "Incorrecto";
+      i18n['ES']['points'] = "puntos";
+      i18n['EN'] = {}
+      i18n['EN']['correct'] = "Correct";
+      i18n['EN']['incorrect'] = "Incorrect";
+      i18n['EN']['points'] = "points";
+</script>
+    <!-- XRegexp -->
+    <script type=text/javascript src=http://cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp-min.js></script>
+    <!-- Form validation -->
+    <script>      data = {"question-0":{"question_text":"\nDado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:\n\\( A^* = \\cup_{n=1}^{\\infty} A^n \\)\nSe admite que $A^0 = { \\epsilon }$, donde $\\epsilon$ denota la\n--------------- --- esto es\nla palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.","answers":{"qfi1-1":{"answer_text":"/palabra/i","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/vac[ií]a/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"\nUna producción de la forma $A \\rightarrow A \\alpha$.\nse dice que es --------- por la ---------\n","answers":{"qfi2-1":{"answer_text":"/recursiva/i","correct":true,"explanation":null,"type":"Regexp"},"qfi2-2":{"answer_text":"/izquierda/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"\nRecuerde el <b>analizador sintáctico descendente predictivo recursivo</b> \npara la <a id=\"grammar\">gramática</a>:<br/>\n<ul>\n  <li> $\\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$\n  <li> $V = { statements, statement, condition, expression, term, factor }$\n  <li> Productions:\n  <ol>\n    <li>\n    statements  $ \\rightarrow$ statement ';' statements  $\\vert$ statement\n    <li>\n    statement  $ \\rightarrow$ ID '=' expression  $\\vert$ P expression\n $ \\vert$ IF condition THEN statement·\n    <li> condition $ \\rightarrow$ expression COMPARISON expression\n    <li>\n    expression  $ \\rightarrow$ term ADDOP expression  $\\vert$ term\n    <li>\n    term  $ \\rightarrow$ factor MULOP term  $\\vert$ factor\n    <li>\n    factor  $ \\rightarrow$ '(' expression ')' $\\vert$ ID $ \\vert$ NUM\n  </ol>\n  <li> Start symbol: $statements$\n</ul>\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>expression</tt>:\n<pre>\n  expression = ->\n    result = term()\n    while --------- and -------------- is \"ADDOP\"\n      type = ---------.-----\n      match \"ADDOP\"\n      right = ------\n      result =\n        type: ----\n        left: result\n        right: right\n    result\n</pre>\n","answers":{"qfi3-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi3-2":{"answer_text":"lookahead.type","correct":true,"explanation":null,"type":"String"},"qfi3-3":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi3-4":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi3-5":{"answer_text":"term()","correct":true,"explanation":null,"type":"String"},"qfi3-6":{"answer_text":"type","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-3":{"question_text":"\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>statement</tt> para la <a href=\"#grammar\">gramática\ndefinida anteriormente</a>:\n<pre>\n  statement = ->\n    result = null\n    if --------- and ---------.---- is \"ID\"\n      left =\n        type: \"ID\"\n        value: ---------.-----\n\n      match \"ID\"\n      match \"=\"\n      right = ----------()\n      result =\n        type: \"=\"\n        left: left\n        right: right\n    else if lookahead and lookahead.type is \"P\"\n      match \"P\"\n      right = ------------\n      result =\n        type: \"P\"\n        value: right\n    else if lookahead and lookahead.type is \"IF\"\n      match \"IF\"\n      left = -----------\n      match \"THEN\"\n      right = -----------\n      result =\n        type: \"IF\"\n        left: left\n        right: right\n    else # Error!\n      throw \"Syntax Error. Expected identifier but found \" + \n        (if lookahead then lookahead.value else \"end of input\") + \n        \" near '#{input.substr(lookahead.from)}'\"\n    result\n\n</pre>\n","answers":{"qfi4-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-3":{"answer_text":"type","correct":true,"explanation":null,"type":"String"},"qfi4-4":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-5":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi4-6":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"},"qfi4-7":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi4-8":{"answer_text":"condition()","correct":true,"explanation":null,"type":"String"},"qfi4-9":{"answer_text":"statement()","correct":true,"explanation":null,"type":"String"}},"points":3,"order":true,"question_comment":""},"question-4":{"question_text":"Rellene las partes que faltan del código CoffeeScript\nque reconoce el sublenguaje generado por <i>condition</i>:\n  <pre>\n  condition = ->\n    left = -----------\n    type = ---------.-----\n    match \"COMPARISON\"\n    right = ----------()\n    result =\n      type: type\n      left: left\n      right: right\n    result\n  </pre>\n","answers":{"qfi5-1":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi5-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-3":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi5-4":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-5":{"question_text":"\nComplete este fragmento de <tt>slim</tt> que establece el favicon de \nla página HTML:\n<pre>\n    link rel=\"-------------\" type=\"image/jpg\" href=\"images/favicon.jpg\"\n</pre>","answers":{"qfi6-1":{"answer_text":"/(shortcut\\s+)?icon/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-6":{"question_text":"\n      Para que un repositorio con una aplicación escrita en Ruby-Sinatra\n      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:\n      <pre>\n      heroku ------ ------\n      </pre>\n      Este comando crea un remoto git cuyo nombre es ------\n      y cuya URL es \n      <pre>\n        git@heroku.com:-------.git\n      </pre>\n      La URL de publicación/despliegue será:\n      http://---------.---------.com/\n      <br/>\n      Una vez que todo esta listo, para publicar nuestra versión\n      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:\n      <pre>\n      git ---- ------ master\n      <br/>\n      </pre>\n      Si la versión que queremos publicar en heroku no está en la rama\n      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos \n      modificar el comando anterior:\n      <pre>\n      git push ------ ----:------\n      </pre>\n    ","answers":{"qfi7-1":{"answer_text":"create","correct":true,"explanation":null,"type":"String"},"qfi7-2":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-3":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-4":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-5":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-6":{"answer_text":"herokuapp","correct":true,"explanation":null,"type":"String"},"qfi7-7":{"answer_text":"push","correct":true,"explanation":null,"type":"String"},"qfi7-8":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-9":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-10":{"answer_text":"tutu","correct":true,"explanation":null,"type":"String"},"qfi7-11":{"answer_text":"master","correct":true,"explanation":null,"type":"String"}},"points":6,"order":true,"question_comment":""},"question-7":{"question_text":"Con que subcomando del cliente <tt>heroku</tt> abro el navegador\n    en la URL del proyecto?<br/>\n    <pre>\n    heroku ----\n    </pre>","answers":{"qfi8-1":{"answer_text":"open","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""}};
+
+      function findCorrectAnswer(idQuestion, questionType) {
+        correctIds = [];
+        for (id in data[idQuestion]['answers']) {
+          if(data[idQuestion]['answers'][id.toString()]['correct'] == true)
+            if (questionType == 0)
+              return id.toString();
+            else {
+              correctIds.push(id.toString());
+            } 
+        }
+        return correctIds;
+      }
+      
+      function checkSelectMultiple(x, checkedIds, correctIds) {
+        results = [];
+        
+        $.each(checkedIds, function(index, value){
+          if (correctIds.indexOf(value) == -1) {
+            results.push(false);
+            printResults(value, 0, data[x.toString()]['answers'][value]['explanation'], 0);
+          }
+          else {
+            results.push(true);
+            printResults(value, 1, data[x.toString()]['answers'][value]['explanation'], 0);
+          }
+        });
+        
+        nCorrects = 0;
+        nIncorrects = 0;
+        $.each(results, function(index, value){
+          if (value == true)
+            nCorrects += 1;
+          else
+            nIncorrects += 1;
+        });
+        
+        calculateMark(data[x.toString()], x.toString(), null, 3, nCorrects, nIncorrects);
+      }
+      
+      function printResults(id, type, explanation, typeQuestion) {
+        if (typeQuestion == 0) {                                        // MultipleChoice and SelectMultiple
+          $("br[class=" + id + "br" + "]").detach();
+          if (type == 1) {
+            if ((explanation == "") || (explanation == null))
+              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['correct'] + "</strong></br>");
+            else
+              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['correct'] + " - " + explanation + "</strong></br>");
+          }
+          else {
+            if ((explanation == "") || (explanation == null))
+              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['incorrect'] + "</strong></br>");
+            else
+              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['incorrect'] + " - " + explanation + "</strong></br>");
+          }
+        }
+        else {          // FillIn
+          for (r in id) {
+            input = $("#" + r.toString());
+            if (id[r] == true) {
+              input.attr('class', input.attr('class') + ' correct');
+            }
+            else { 
+              if ((id[r] == false) || (id[r] != "n/a")) {
+                input.attr('class', input.attr('class') + ' incorrect');
+              }
+            }
+            
+            if ((id[r] != true) && (id[r] != false) && (id[r] != "n/a")) {
+              if (explanation[id[r].toString()] != null)
+                $("div[id ~= " + r.toString() + "r" + "]").html(" <div class=explanation>" + explanation[id[r].toString()] + "</div>");
+            }
+            else {
+              if (explanation[r] != null)
+                $("div[id ~= " + r + "r" + "]").html(" <div class=explanation>" + explanation[r] + "</div>");
+            }
+          }
+        }
+      }
+      
+      function calculateMark(question, id, result, typeQuestion, numberCorrects, numberIncorrects) {
+        if (typeQuestion == 2) {
+          if (result)
+            $("#" + id).append("<strong class=mark> " + question['points'].toFixed(2) + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
+          else
+            $("#" + id).append("<strong class=mark> 0.00/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
+        }
+        else if (typeQuestion == 1) {
+          size = 0;
+          for (y in question['answers'])
+            if (question['answers'][y]['correct'] == true)
+              size += 1;
+              
+          pointsUser = ((question['points'] / size) * numberCorrects).toFixed(2);
+          $("#" + id).append("<strong class=mark> " + pointsUser + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
+        }
+        else {
+          totalCorrects = 0;
+          for (y in question['answers']) {
+            if (question['answers'][y]['correct'] == true)
+              totalCorrects += 1;
+          }
+          
+          correctAnswerPoints = question['points'] / totalCorrects;
+          penalty = correctAnswerPoints * numberIncorrects;
+          mark = (correctAnswerPoints * numberCorrects) - penalty;
+          
+          if (mark < 0)
+            mark = 0;
+            
+          $("#" + id).append("<strong class=mark> " + mark.toFixed(2) + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");        
+        }
+      }
+      
+      function checkFillin(correctAnswers, userAnswers, distractorAnswers, typeCorrection) {
+        correction = {};
+        checkedAnswers = {};
+        
+        if (typeCorrection == 0) {          // Order doesn't matter
+          for (u in userAnswers) {
+            if (userAnswers[u] != undefined) {    // No empty field
+              matchedCorrect = false;
+              for (y in correctAnswers) {
+                if (checkAnswers[u] == undefined) {
+                  if ((typeof(correctAnswers[y]) == "string") || (typeof(correctAnswers[y]) == "number")) {    // Answer is a String or a Number
+                    if (userAnswers[u] == correctAnswers[y]) {
+                      correction[u] = true;
+                      checkedAnswers[u] = userAnswers[u];
+                      matchedCorrect = true;
+                      break;
+                    }
+                  }
+                  else {  // Answer is a Regexp
+                    if (userAnswers[u].match(correctAnswers[y])) {
+                      correction[u] = true;
+                      checkedAnswers[u] = userAnswers[u];
+                      matchedCorrect = true;
+                      break;
+                    }
+                  }
+                }
+              }
+              if (!matchedCorrect)
+                correction[u] = false;
+            }
+            else
+              correction[u] = "n/a";
+          }
+        }
+        else {                            // Order matters
+          for (u in userAnswers) {
+            if (userAnswers[u] != undefined) {
+              if ((typeof(correctAnswers[u]) == "string") || (typeof(correctAnswers[u]) == "number")) {
+                if (userAnswers[u] == correctAnswers[u])
+                  correction[u] = true;
+                else
+                  correction[u] = false;
+              }
+              else {
+                if (userAnswers[u].match(correctAnswers[u]))
+                  correction[u] = true;
+                else
+                  correction[u] = false;
+              }
+            }
+            else
+              correction[u] = "n/a";
+          }
+        }
+        
+        if (Object.keys(userAnswers).length == 1) {
+          for (u in userAnswers) {
+            if (correction[u] == false) {
+              for (y in distractorAnswers) {
+                if ((typeof(distractorAnswers[y]) == "string") || (typeof(distractorAnswers[y]) == "number")) {
+                  if (userAnswers[u] == distractorAnswers[y])
+                    correction[u] = y.toString();
+                }
+                else {
+                  if (userAnswers[u].match(distractorAnswers[y]))
+                    correction[u] = y.toString();
+                }
+              }
+            }
+          }
+        }
+        return correction;
+      }
+      
+      function checkAnswers() {
+        
+        for (x in data) {
+          if ($("#" + x.toString() + " strong").length == 0) {
+            correct = false;
+            answers = $("#" + x.toString() + " input");
+            
+            if (answers.attr('class').match("fillin")) {
+              correctAnswers = {};
+              distractorAnswers = {};
+              explanation = {};
+              stringAnswer = false;
+              
+              for (ans in data[x.toString()]['answers']) {
+                if (data[x.toString()]['answers'][ans]['correct'] == true) {
+                  if (data[x.toString()]['answers'][ans]['type'] == "Regexp") {
+                    string = data[x.toString()]['answers'][ans]['answer_text'].split('/');
+                    regexp = string[1];
+                    options = string[2];
+                    correctAnswers[ans.toString()] = RegExp(regexp, options);
+                  }
+                  else { // String or Number
+                    correctAnswers[ans.toString()] = data[x.toString()]['answers'][ans]['answer_text'];
+                    stringAnswer = true;
+                  }
+                }
+                else {
+                  if (data[x.toString()]['answers'][ans]['type'] == "Regexp") {
+                    string = data[x.toString()]['answers'][ans]['answer_text'].split('/');
+                    regexp = string[1];
+                    options = string[2];
+                    distractorAnswers[ans.toString()] = RegExp(regexp, options);
+                  }
+                  else {// String or Number
+                    distractorAnswers[ans.toString()] = data[x.toString()]['answers'][ans]['answer_text'];
+                    stringAnswer = true;
+                  }
+                }
+                explanation[ans] = data[x.toString()]['answers'][ans]['explanation'];
+              }
+              
+              userAnswers = {};
+              for (i = 0; i < answers.length; i++) {
+                if (answers[i].value == '')
+                  userAnswers[answers[i].id.toString()] = undefined;
+                else
+                  if (stringAnswer)
+                    userAnswers[answers[i].id.toString()] = answers[i].value.toLowerCase();
+                  else
+                    userAnswers[answers[i].id.toString()] = answers[i].value;
+              }
+              
+              if (data[x.toString()]['order'] == false)
+                results = checkFillin(correctAnswers, userAnswers, distractorAnswers, 0);
+              else
+                results = checkFillin(correctAnswers, userAnswers, distractorAnswers, 1);
+                
+              allEmpty = true;
+              nCorrects = 0;
+              
+              for (r in results) {
+                if (results[r] == true)
+                  nCorrects += 1;
+                if (results[r] != "n/a")
+                  allEmpty = false;
+              }
+              
+              if (!allEmpty) {
+                printResults(results, null, explanation, 1);
+                calculateMark(data[x.toString()], x.toString(), null, 1, nCorrects, null);
+              }
+            }
+            
+            else if (answers.attr('class') == "select") {
+              idCorrectAnswer = findCorrectAnswer(x.toString(), 0);
+              
+              if ($("#" + x.toString() + " :checked").size() != 0) {
+                if ($("#" + x.toString() + " :checked").attr('id') == idCorrectAnswer) {
+                  printResults($("#" + x.toString() + " :checked").attr('id'), 1, "", 0);
+                  correct = true;
+                }
+                else {
+                  id = $("#" + x.toString() + " :checked").attr('id');
+                  printResults(id, 0, data[x.toString()]['answers'][id]['explanation'], 0);
+                }
+                calculateMark(data[x.toString()], x.toString(), correct, 2, null, null);
+              }
+            }
+            
+            else {
+              if ($("#" + x.toString() + " :checked").size() != 0) {
+                answers = $("#" + x.toString() + " :checked");
+                checkedIds = [];
+                
+                $.each(answers, function(index, value){
+                  checkedIds.push(value['id']);
+                });
+                
+                correctIds = [];
+                correctIds = findCorrectAnswer(x.toString(), 1);
+                checkSelectMultiple(x, checkedIds, correctIds);
+              }
+            }
+          }
+        }
+      }
+      
+      function storeAnswers() {
+        if(typeof(Storage) !== "undefined") {
+          // Store
+          //localStorage.lastname = "Smith";
+          // Retrieve
+          //document.getElementById("storage").innerHTML=localStorage.lastname;
+          inputText = $('input:text').filter(function() { return $(this).val() != ""; });
+          for (i = 0; i < inputText.length; i++) {
+            idAnswer = inputText[i].id;
+            localStorage[idAnswer] = inputText[i].value;
+          }
+          
+          inputRadioCheckBox = $('input:checked');
+          for (i = 0; i < inputRadioCheckBox.length; i++) {
+            idAnswer = inputRadioCheckBox[i].id;
+            nquestion = parseInt(idAnswer.split('-')[0].substr(3)) - 1;
+            localStorage[idAnswer] = data["question-" + nquestion.toString()]['answers'][idAnswer]['answer_text'];
+          }
+        }
+        else {
+          alert("Sorry! No Web Storage supported.");
+        }
+      }
+      
+      function deleteAnswers() {
+        localStorage.clear();
+        alert("Local storage deleted");
+      }
+      
+      if (typeof(codehelper_ip) == "undefined")
+        language = "EN";
+      else
+        language = codehelper_ip.Country;
+      
+      $("#submit").click(function() {
+        checkAnswers();
+        filledAllQuiz = true;
+        
+        for (x in data) {
+          if ($("#" + x.toString() + " strong").length == 0)
+            filledAllQuiz = false; 
+        }
+        if (filledAllQuiz)
+          $("#submit").detach();
+        
+        storeAnswers();
+      });
+
+      $("#reset").click(function() {
+        window.location.reload();
+      });
+      
+      $("#deletestorage").click(function() {
+        deleteAnswers();
+      });
+      
+      $(document).ready(function() {
+        if (localStorage.length != 0) {
+          for (x in localStorage) {
+            if (x.match(/qfi/))                                         // FillIn question
+              $("#" + x.toString()).val(localStorage[x.toString()]);
+            else {                                                      // SelectMultiple/MultipleChoice question
+              $("#" + x.toString()).attr('checked', 'checked');
+            }
+          }
+        }
+      });
+</script>
+    <!-- Any JavaScript included by the user -->
+    
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- -->
+  </body>
+</html>
