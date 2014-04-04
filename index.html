@@ -93,7 +93,7 @@ ANÁLISIS SINTÁCTICO</h3>
           </div>
         </div>
       
-      <!-- Seed: 37487587813744193971074685324247538291 -->
+      <!-- Seed: 3680706143413170557105713185363262136 -->
 <form id="form">
   <ol class="questions">
     <li id="question-0" class="question fillin ">
@@ -114,12 +114,25 @@ se dice que es <input type=text id=qfi2-1 class='fillin size-9'></input> por la 
     </li>
     <li id="question-2" class="question fillin ">
       <div class="quiz text">
+[1 point] Encuentre una gramática equivalente a esta:
+      <pre>
+        A: A 'a' | 'b'
+      </pre>
+      pero que no sea recursiva por la izquierda:
+      <pre>
+        A: <input type=text id=qfi3-1 class='fillin size-5'></input>
+        R: /* vacío */ | <input type=text id=qfi3-2 class='fillin size-5'></input>
+      </pre>
+    <div id=qfi3-2r class=quiz></div></br></br>      </div>
+    </li>
+    <li id="question-3" class="question fillin ">
+      <div class="quiz text">
 [1 point] 
 Recuerde el <b>analizador sintáctico descendente predictivo recursivo</b> 
 para la <a id="grammar">gramática</a>:<br/>
 <ul>
-  <li> $\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$
-  <li> $V = { statements, statement, condition, expression, term, factor }$
+  <li> $\Sigma = \{ ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM \}$
+  <li> $V = \{ statements, statement, condition, expression, term, factor \}$
   <li> Productions:
   <ol>
     <li>
@@ -143,19 +156,19 @@ por <tt>expression</tt>:
 <pre>
   expression = ->
     result = term()
-    while <input type=text id=qfi3-1 class='fillin size-9'></input> and <input type=text id=qfi3-2 class='fillin size-14'></input> is "ADDOP"
-      type = <input type=text id=qfi3-3 class='fillin size-9'></input>.<input type=text id=qfi3-4 class='fillin size-5'></input>
+    while <input type=text id=qfi4-1 class='fillin size-9'></input> and <input type=text id=qfi4-2 class='fillin size-14'></input> is "ADDOP"
+      type = <input type=text id=qfi4-3 class='fillin size-9'></input>.<input type=text id=qfi4-4 class='fillin size-5'></input>
       match "ADDOP"
-      right = <input type=text id=qfi3-5 class='fillin size-6'></input>
+      right = <input type=text id=qfi4-5 class='fillin size-6'></input>
       result =
-        type: <input type=text id=qfi3-6 class='fillin size-4'></input>
+        type: <input type=text id=qfi4-6 class='fillin size-4'></input>
         left: result
         right: right
     result
 </pre>
-<div id=qfi3-6r class=quiz></div></br></br>      </div>
+<div id=qfi4-6r class=quiz></div></br></br>      </div>
     </li>
-    <li id="question-3" class="question fillin ">
+    <li id="question-4" class="question fillin ">
       <div class="quiz text">
 [3 points] 
 Rellene las partes que faltan de código CoffeeScript del 
@@ -165,29 +178,29 @@ definida anteriormente</a>:
 <pre>
   statement = ->
     result = null
-    if <input type=text id=qfi4-1 class='fillin size-9'></input> and <input type=text id=qfi4-2 class='fillin size-9'></input>.<input type=text id=qfi4-3 class='fillin size-4'></input> is "ID"
+    if <input type=text id=qfi5-1 class='fillin size-9'></input> and <input type=text id=qfi5-2 class='fillin size-9'></input>.<input type=text id=qfi5-3 class='fillin size-4'></input> is "ID"
       left =
         type: "ID"
-        value: <input type=text id=qfi4-4 class='fillin size-9'></input>.<input type=text id=qfi4-5 class='fillin size-5'></input>
+        value: <input type=text id=qfi5-4 class='fillin size-9'></input>.<input type=text id=qfi5-5 class='fillin size-5'></input>
 
       match "ID"
       match "="
-      right = <input type=text id=qfi4-6 class='fillin size-10'></input>()
+      right = <input type=text id=qfi5-6 class='fillin size-10'></input>()
       result =
         type: "="
         left: left
         right: right
     else if lookahead and lookahead.type is "P"
       match "P"
-      right = <input type=text id=qfi4-7 class='fillin size-12'></input>
+      right = <input type=text id=qfi5-7 class='fillin size-12'></input>
       result =
         type: "P"
         value: right
     else if lookahead and lookahead.type is "IF"
       match "IF"
-      left = <input type=text id=qfi4-8 class='fillin size-11'></input>
+      left = <input type=text id=qfi5-8 class='fillin size-11'></input>
       match "THEN"
-      right = <input type=text id=qfi4-9 class='fillin size-11'></input>
+      right = <input type=text id=qfi5-9 class='fillin size-11'></input>
       result =
         type: "IF"
         left: left
@@ -199,72 +212,72 @@ definida anteriormente</a>:
     result
 
 </pre>
-<div id=qfi4-9r class=quiz></div></br></br>      </div>
+<div id=qfi5-9r class=quiz></div></br></br>      </div>
     </li>
-    <li id="question-4" class="question fillin ">
+    <li id="question-5" class="question fillin ">
       <div class="quiz text">
 [1 point] Rellene las partes que faltan del código CoffeeScript
 que reconoce el sublenguaje generado por <i>condition</i>:
   <pre>
   condition = ->
-    left = <input type=text id=qfi5-1 class='fillin size-11'></input>
-    type = <input type=text id=qfi5-2 class='fillin size-9'></input>.<input type=text id=qfi5-3 class='fillin size-5'></input>
+    left = <input type=text id=qfi6-1 class='fillin size-11'></input>
+    type = <input type=text id=qfi6-2 class='fillin size-9'></input>.<input type=text id=qfi6-3 class='fillin size-5'></input>
     match "COMPARISON"
-    right = <input type=text id=qfi5-4 class='fillin size-10'></input>()
+    right = <input type=text id=qfi6-4 class='fillin size-10'></input>()
     result =
       type: type
       left: left
       right: right
     result
   </pre>
-<div id=qfi5-4r class=quiz></div></br></br>      </div>
+<div id=qfi6-4r class=quiz></div></br></br>      </div>
     </li>
-    <li id="question-5" class="question fillin ">
+    <li id="question-6" class="question fillin ">
       <div class="quiz text">
 [1 point] 
 Complete este fragmento de <tt>slim</tt> que establece el favicon de 
 la página HTML:
 <pre>
-    link rel="<input type=text id=qfi6-1 class='fillin size-13'></input>" type="image/jpg" href="images/favicon.jpg"
-</pre><div id=qfi6-1r class=quiz></div></br></br>      </div>
+    link rel="<input type=text id=qfi7-1 class='fillin size-13'></input>" type="image/jpg" href="images/favicon.jpg"
+</pre><div id=qfi7-1r class=quiz></div></br></br>      </div>
     </li>
-    <li id="question-6" class="question fillin ">
+    <li id="question-7" class="question fillin ">
       <div class="quiz text">
 [6 points] 
       Para que un repositorio con una aplicación escrita en Ruby-Sinatra
       pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:
       <pre>
-      heroku <input type=text id=qfi7-1 class='fillin size-6'></input> <input type=text id=qfi7-2 class='fillin size-6'></input>
+      heroku <input type=text id=qfi8-1 class='fillin size-6'></input> <input type=text id=qfi8-2 class='fillin size-6'></input>
       </pre>
-      Este comando crea un remoto git cuyo nombre es <input type=text id=qfi7-3 class='fillin size-6'></input>
+      Este comando crea un remoto git cuyo nombre es <input type=text id=qfi8-3 class='fillin size-6'></input>
       y cuya URL es 
       <pre>
-        git@heroku.com:<input type=text id=qfi7-4 class='fillin size-7'></input>.git
+        git@heroku.com:<input type=text id=qfi8-4 class='fillin size-7'></input>.git
       </pre>
       La URL de publicación/despliegue será:
-      http://<input type=text id=qfi7-5 class='fillin size-9'></input>.<input type=text id=qfi7-6 class='fillin size-9'></input>.com/
+      http://<input type=text id=qfi8-5 class='fillin size-9'></input>.<input type=text id=qfi8-6 class='fillin size-9'></input>.com/
       <br/>
       Una vez que todo esta listo, para publicar nuestra versión
       en la rama <tt>master</tt> en heroku debemos ejecutar el comando:
       <pre>
-      git <input type=text id=qfi7-7 class='fillin size-4'></input> <input type=text id=qfi7-8 class='fillin size-6'></input> master
+      git <input type=text id=qfi8-7 class='fillin size-4'></input> <input type=text id=qfi8-8 class='fillin size-6'></input> master
       <br/>
       </pre>
       Si la versión que queremos publicar en heroku no está en la rama
       <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos 
       modificar el comando anterior:
       <pre>
-      git push <input type=text id=qfi7-9 class='fillin size-6'></input> <input type=text id=qfi7-10 class='fillin size-4'></input>:<input type=text id=qfi7-11 class='fillin size-6'></input>
+      git push <input type=text id=qfi8-9 class='fillin size-6'></input> <input type=text id=qfi8-10 class='fillin size-4'></input>:<input type=text id=qfi8-11 class='fillin size-6'></input>
       </pre>
-    <div id=qfi7-11r class=quiz></div></br></br>      </div>
+    <div id=qfi8-11r class=quiz></div></br></br>      </div>
     </li>
-    <li id="question-7" class="question fillin ">
+    <li id="question-8" class="question fillin ">
       <div class="quiz text">
 [1 point] Con que subcomando del cliente <tt>heroku</tt> abro el navegador
     en la URL del proyecto?<br/>
     <pre>
-    heroku <input type=text id=qfi8-1 class='fillin size-4'></input>
-    </pre><div id=qfi8-1r class=quiz></div></br></br>      </div>
+    heroku <input type=text id=qfi9-1 class='fillin size-4'></input>
+    </pre><div id=qfi9-1r class=quiz></div></br></br>      </div>
     </li>
   </ol>
   <div class="btn-footer">
@@ -316,7 +329,7 @@ Delete storage    </button>
     <!-- XRegexp -->
     <script type=text/javascript src=http://cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp-min.js></script>
     <!-- Form validation -->
-    <script>      data = {"question-0":{"question_text":"\nDado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:\n\\( A^* = \\cup_{n=1}^{\\infty} A^n \\)\nSe admite que $A^0 = { \\epsilon }$, donde $\\epsilon$ denota la\n--------------- --- esto es\nla palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.","answers":{"qfi1-1":{"answer_text":"/palabra/i","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/vac[ií]a/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"\nUna producción de la forma $A \\rightarrow A \\alpha$.\nse dice que es --------- por la ---------\n","answers":{"qfi2-1":{"answer_text":"/recursiva/i","correct":true,"explanation":null,"type":"Regexp"},"qfi2-2":{"answer_text":"/izquierda/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"\nRecuerde el <b>analizador sintáctico descendente predictivo recursivo</b> \npara la <a id=\"grammar\">gramática</a>:<br/>\n<ul>\n  <li> $\\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$\n  <li> $V = { statements, statement, condition, expression, term, factor }$\n  <li> Productions:\n  <ol>\n    <li>\n    statements  $ \\rightarrow$ statement ';' statements  $\\vert$ statement\n    <li>\n    statement  $ \\rightarrow$ ID '=' expression  $\\vert$ P expression\n $ \\vert$ IF condition THEN statement·\n    <li> condition $ \\rightarrow$ expression COMPARISON expression\n    <li>\n    expression  $ \\rightarrow$ term ADDOP expression  $\\vert$ term\n    <li>\n    term  $ \\rightarrow$ factor MULOP term  $\\vert$ factor\n    <li>\n    factor  $ \\rightarrow$ '(' expression ')' $\\vert$ ID $ \\vert$ NUM\n  </ol>\n  <li> Start symbol: $statements$\n</ul>\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>expression</tt>:\n<pre>\n  expression = ->\n    result = term()\n    while --------- and -------------- is \"ADDOP\"\n      type = ---------.-----\n      match \"ADDOP\"\n      right = ------\n      result =\n        type: ----\n        left: result\n        right: right\n    result\n</pre>\n","answers":{"qfi3-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi3-2":{"answer_text":"lookahead.type","correct":true,"explanation":null,"type":"String"},"qfi3-3":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi3-4":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi3-5":{"answer_text":"term()","correct":true,"explanation":null,"type":"String"},"qfi3-6":{"answer_text":"type","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-3":{"question_text":"\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>statement</tt> para la <a href=\"#grammar\">gramática\ndefinida anteriormente</a>:\n<pre>\n  statement = ->\n    result = null\n    if --------- and ---------.---- is \"ID\"\n      left =\n        type: \"ID\"\n        value: ---------.-----\n\n      match \"ID\"\n      match \"=\"\n      right = ----------()\n      result =\n        type: \"=\"\n        left: left\n        right: right\n    else if lookahead and lookahead.type is \"P\"\n      match \"P\"\n      right = ------------\n      result =\n        type: \"P\"\n        value: right\n    else if lookahead and lookahead.type is \"IF\"\n      match \"IF\"\n      left = -----------\n      match \"THEN\"\n      right = -----------\n      result =\n        type: \"IF\"\n        left: left\n        right: right\n    else # Error!\n      throw \"Syntax Error. Expected identifier but found \" + \n        (if lookahead then lookahead.value else \"end of input\") + \n        \" near '#{input.substr(lookahead.from)}'\"\n    result\n\n</pre>\n","answers":{"qfi4-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-3":{"answer_text":"type","correct":true,"explanation":null,"type":"String"},"qfi4-4":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-5":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi4-6":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"},"qfi4-7":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi4-8":{"answer_text":"condition()","correct":true,"explanation":null,"type":"String"},"qfi4-9":{"answer_text":"statement()","correct":true,"explanation":null,"type":"String"}},"points":3,"order":true,"question_comment":""},"question-4":{"question_text":"Rellene las partes que faltan del código CoffeeScript\nque reconoce el sublenguaje generado por <i>condition</i>:\n  <pre>\n  condition = ->\n    left = -----------\n    type = ---------.-----\n    match \"COMPARISON\"\n    right = ----------()\n    result =\n      type: type\n      left: left\n      right: right\n    result\n  </pre>\n","answers":{"qfi5-1":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi5-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-3":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi5-4":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-5":{"question_text":"\nComplete este fragmento de <tt>slim</tt> que establece el favicon de \nla página HTML:\n<pre>\n    link rel=\"-------------\" type=\"image/jpg\" href=\"images/favicon.jpg\"\n</pre>","answers":{"qfi6-1":{"answer_text":"/(shortcut\\s+)?icon/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-6":{"question_text":"\n      Para que un repositorio con una aplicación escrita en Ruby-Sinatra\n      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:\n      <pre>\n      heroku ------ ------\n      </pre>\n      Este comando crea un remoto git cuyo nombre es ------\n      y cuya URL es \n      <pre>\n        git@heroku.com:-------.git\n      </pre>\n      La URL de publicación/despliegue será:\n      http://---------.---------.com/\n      <br/>\n      Una vez que todo esta listo, para publicar nuestra versión\n      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:\n      <pre>\n      git ---- ------ master\n      <br/>\n      </pre>\n      Si la versión que queremos publicar en heroku no está en la rama\n      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos \n      modificar el comando anterior:\n      <pre>\n      git push ------ ----:------\n      </pre>\n    ","answers":{"qfi7-1":{"answer_text":"create","correct":true,"explanation":null,"type":"String"},"qfi7-2":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-3":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-4":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-5":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi7-6":{"answer_text":"herokuapp","correct":true,"explanation":null,"type":"String"},"qfi7-7":{"answer_text":"push","correct":true,"explanation":null,"type":"String"},"qfi7-8":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-9":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi7-10":{"answer_text":"tutu","correct":true,"explanation":null,"type":"String"},"qfi7-11":{"answer_text":"master","correct":true,"explanation":null,"type":"String"}},"points":6,"order":true,"question_comment":""},"question-7":{"question_text":"Con que subcomando del cliente <tt>heroku</tt> abro el navegador\n    en la URL del proyecto?<br/>\n    <pre>\n    heroku ----\n    </pre>","answers":{"qfi8-1":{"answer_text":"open","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""}};
+    <script>      data = {"question-0":{"question_text":"\nDado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:\n\\( A^* = \\cup_{n=1}^{\\infty} A^n \\)\nSe admite que $A^0 = { \\epsilon }$, donde $\\epsilon$ denota la\n--------------- --- esto es\nla palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.","answers":{"qfi1-1":{"answer_text":"/palabra/i","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/vac[ií]a/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"\nUna producción de la forma $A \\rightarrow A \\alpha$.\nse dice que es --------- por la ---------\n","answers":{"qfi2-1":{"answer_text":"/recursiva/i","correct":true,"explanation":null,"type":"Regexp"},"qfi2-2":{"answer_text":"/izquierda/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"Encuentre una gramática equivalente a esta:\n      <pre>\n        A: A 'a' | 'b'\n      </pre>\n      pero que no sea recursiva por la izquierda:\n      <pre>\n        A: -----\n        R: /* vacío */ | -----\n      </pre>\n    ","answers":{"qfi3-1":{"answer_text":"/'b'\\s*R/","correct":true,"explanation":null,"type":"Regexp"},"qfi3-2":{"answer_text":"/'a'\\s*R/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-3":{"question_text":"\nRecuerde el <b>analizador sintáctico descendente predictivo recursivo</b> \npara la <a id=\"grammar\">gramática</a>:<br/>\n<ul>\n  <li> $\\Sigma = \\{ ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM \\}$\n  <li> $V = \\{ statements, statement, condition, expression, term, factor \\}$\n  <li> Productions:\n  <ol>\n    <li>\n    statements  $ \\rightarrow$ statement ';' statements  $\\vert$ statement\n    <li>\n    statement  $ \\rightarrow$ ID '=' expression  $\\vert$ P expression\n $ \\vert$ IF condition THEN statement·\n    <li> condition $ \\rightarrow$ expression COMPARISON expression\n    <li>\n    expression  $ \\rightarrow$ term ADDOP expression  $\\vert$ term\n    <li>\n    term  $ \\rightarrow$ factor MULOP term  $\\vert$ factor\n    <li>\n    factor  $ \\rightarrow$ '(' expression ')' $\\vert$ ID $ \\vert$ NUM\n  </ol>\n  <li> Start symbol: $statements$\n</ul>\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>expression</tt>:\n<pre>\n  expression = ->\n    result = term()\n    while --------- and -------------- is \"ADDOP\"\n      type = ---------.-----\n      match \"ADDOP\"\n      right = ------\n      result =\n        type: ----\n        left: result\n        right: right\n    result\n</pre>\n","answers":{"qfi4-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-2":{"answer_text":"lookahead.type","correct":true,"explanation":null,"type":"String"},"qfi4-3":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-4":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi4-5":{"answer_text":"term()","correct":true,"explanation":null,"type":"String"},"qfi4-6":{"answer_text":"type","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-4":{"question_text":"\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>statement</tt> para la <a href=\"#grammar\">gramática\ndefinida anteriormente</a>:\n<pre>\n  statement = ->\n    result = null\n    if --------- and ---------.---- is \"ID\"\n      left =\n        type: \"ID\"\n        value: ---------.-----\n\n      match \"ID\"\n      match \"=\"\n      right = ----------()\n      result =\n        type: \"=\"\n        left: left\n        right: right\n    else if lookahead and lookahead.type is \"P\"\n      match \"P\"\n      right = ------------\n      result =\n        type: \"P\"\n        value: right\n    else if lookahead and lookahead.type is \"IF\"\n      match \"IF\"\n      left = -----------\n      match \"THEN\"\n      right = -----------\n      result =\n        type: \"IF\"\n        left: left\n        right: right\n    else # Error!\n      throw \"Syntax Error. Expected identifier but found \" + \n        (if lookahead then lookahead.value else \"end of input\") + \n        \" near '#{input.substr(lookahead.from)}'\"\n    result\n\n</pre>\n","answers":{"qfi5-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-3":{"answer_text":"type","correct":true,"explanation":null,"type":"String"},"qfi5-4":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-5":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi5-6":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"},"qfi5-7":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi5-8":{"answer_text":"condition()","correct":true,"explanation":null,"type":"String"},"qfi5-9":{"answer_text":"statement()","correct":true,"explanation":null,"type":"String"}},"points":3,"order":true,"question_comment":""},"question-5":{"question_text":"Rellene las partes que faltan del código CoffeeScript\nque reconoce el sublenguaje generado por <i>condition</i>:\n  <pre>\n  condition = ->\n    left = -----------\n    type = ---------.-----\n    match \"COMPARISON\"\n    right = ----------()\n    result =\n      type: type\n      left: left\n      right: right\n    result\n  </pre>\n","answers":{"qfi6-1":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi6-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi6-3":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi6-4":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-6":{"question_text":"\nComplete este fragmento de <tt>slim</tt> que establece el favicon de \nla página HTML:\n<pre>\n    link rel=\"-------------\" type=\"image/jpg\" href=\"images/favicon.jpg\"\n</pre>","answers":{"qfi7-1":{"answer_text":"/(shortcut\\s+)?icon/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-7":{"question_text":"\n      Para que un repositorio con una aplicación escrita en Ruby-Sinatra\n      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:\n      <pre>\n      heroku ------ ------\n      </pre>\n      Este comando crea un remoto git cuyo nombre es ------\n      y cuya URL es \n      <pre>\n        git@heroku.com:-------.git\n      </pre>\n      La URL de publicación/despliegue será:\n      http://---------.---------.com/\n      <br/>\n      Una vez que todo esta listo, para publicar nuestra versión\n      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:\n      <pre>\n      git ---- ------ master\n      <br/>\n      </pre>\n      Si la versión que queremos publicar en heroku no está en la rama\n      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos \n      modificar el comando anterior:\n      <pre>\n      git push ------ ----:------\n      </pre>\n    ","answers":{"qfi8-1":{"answer_text":"create","correct":true,"explanation":null,"type":"String"},"qfi8-2":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-3":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-4":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-5":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-6":{"answer_text":"herokuapp","correct":true,"explanation":null,"type":"String"},"qfi8-7":{"answer_text":"push","correct":true,"explanation":null,"type":"String"},"qfi8-8":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-9":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-10":{"answer_text":"tutu","correct":true,"explanation":null,"type":"String"},"qfi8-11":{"answer_text":"master","correct":true,"explanation":null,"type":"String"}},"points":6,"order":true,"question_comment":""},"question-8":{"question_text":"Con que subcomando del cliente <tt>heroku</tt> abro el navegador\n    en la URL del proyecto?<br/>\n    <pre>\n    heroku ----\n    </pre>","answers":{"qfi9-1":{"answer_text":"open","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""}};
 
       function findCorrectAnswer(idQuestion, questionType) {
         correctIds = [];
