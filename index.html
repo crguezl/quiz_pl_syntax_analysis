@@ -35,31 +35,29 @@ ANÁLISIS SINTÁCTICO</title>
       }
       .nav>li>a.links:hover {color: #FFCCFF;}
       /* Inputs size */
-      input.size-3 { width: 3em; }
+      input.size-3 { width: 2.1em; }
 
-input.size-4 { width: 4em; }
+input.size-4 { width: 2.8em; }
 
-input.size-5 { width: 5em; }
+input.size-5 { width: 3.5em; }
 
-input.size-6 { width: 6em; }
+input.size-6 { width: 4.2em; }
 
-input.size-7 { width: 7em; }
+input.size-7 { width: 4.9em; }
 
-input.size-8 { width: 8em; }
+input.size-8 { width: 5.6em; }
 
-input.size-9 { width: 9em; }
+input.size-9 { width: 6.300000000000001em; }
 
-input.size-10 { width: 10em; }
+input.size-10 { width: 7.0em; }
 
-input.size-11 { width: 11em; }
+input.size-11 { width: 7.7em; }
 
-input.size-12 { width: 12em; }
+input.size-12 { width: 8.4em; }
 
-input.size-13 { width: 13em; }
+input.size-13 { width: 9.1em; }
 
-input.size-14 { width: 14em; }
-
-input.size-15 { width: 15em; }
+input.size-14 { width: 9.8em; }
 
     </style>
     <!-- Any CSS included by the user -->
@@ -95,7 +93,7 @@ ANÁLISIS SINTÁCTICO</h3>
           </div>
         </div>
       
-      <!-- Seed: 87976226517832053849413405508974334473 -->
+      <!-- Seed: 151175780632050785372568999610817779669 -->
 <form id="form">
   <ol class="questions">
     <li id="question-0" class="question fillin ">
@@ -104,8 +102,8 @@ ANÁLISIS SINTÁCTICO</h3>
 Dado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:
 \( A^* = \cup_{n=1}^{\infty} A^n \)
 Se admite que $A^0 = { \epsilon }$, donde $\epsilon$ denota la
-<input type=text id=qfi1-1 class='fillin size-15'></input> <input type=text id=qfi1-2 class='fillin size-3'></input> esto es
-la palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$<div id=qfi1-2r class=quiz></div></br></br>      </div>
+<input type=text id=qfi1-1 class='fillin size-7'></input> <input type=text id=qfi1-2 class='fillin size-4'></input> esto es
+la palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.<div id=qfi1-2r class=quiz></div></br></br>      </div>
     </li>
     <li id="question-1" class="question fillin ">
       <div class="quiz text">
@@ -133,7 +131,7 @@ se dice que es <input type=text id=qfi2-1 class='fillin size-9'></input> por la 
 Recuerde el <b>analizador sintáctico descendente predictivo recursivo</b> 
 para la <a id="grammar">gramática</a>:<br/>
 <ul>
-  <li> $\Sigma = \{ ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM \}$
+  <li> $\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$
   <li> $V = \{ statements, statement, condition, expression, term, factor \}$
   <li> Productions:
   <ol>
@@ -348,15 +346,15 @@ if c then if c then o else o
     <br></br>      </div>
       <ol class="answers">
         <input type="radio" id="qmc12-1" name="qmc12" class="select">
-<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt><br class=qmc12-1br>        </input>
+<tt>Syntax Error</tt>. La frase no es aceptada por el peg<br class=qmc12-1br>        </input>
         <div id="qmc12-1r" class="quiz">
         </div>
         <input type="radio" id="qmc12-2" name="qmc12" class="select">
-<tt>Syntax Error</tt>. La frase no es aceptada por el peg<br class=qmc12-2br>        </input>
+<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt><br class=qmc12-2br>        </input>
         <div id="qmc12-2r" class="quiz">
         </div>
         <input type="radio" id="qmc12-3" name="qmc12" class="select">
-<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt><br class=qmc12-3br>        </input>
+<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt><br class=qmc12-3br>        </input>
         <div id="qmc12-3r" class="quiz">
         </div>
         <br/>
@@ -388,7 +386,7 @@ Complete las partes que faltan para que el PEGjs reconozca este
 clásico ejemplo de lenguaje que no es independiente del contexto
                $\{ a^nb^nc^n / n \ge{} 1 \}$
 <pre>
-S = <input type=text id=qfi14-1 class='fillin size-3'></input>(<input type=text id=qfi14-2 class='fillin size-3'></input> <input type=text id=qfi14-3 class='fillin size-3'></input>) 'a'+ B:<input type=text id=qfi14-4 class='fillin size-3'></input> !('c'/[<input type=text id=qfi14-5 class='fillin size-3'></input>]) { return B; }
+S = <input type=text id=qfi14-1 class='fillin size-4'></input>(<input type=text id=qfi14-2 class='fillin size-4'></input> <input type=text id=qfi14-3 class='fillin size-4'></input>) 'a'+ B:<input type=text id=qfi14-4 class='fillin size-4'></input> !('c'/[<input type=text id=qfi14-5 class='fillin size-4'></input>]) { return B; }
 A = 'a' A:A? 'b' { if (A) { return A+1; } else return 1; }
 B = 'b' B:B? 'c' { if (B) { return B+1; } else return 1; }
 </pre>
@@ -403,7 +401,7 @@ los comentarios Pascal:
 P     =   prog:N+                          { return prog; }
 N     =   chars:$(!Begin ANY)+             { return chars;}
         / C
-C     = Begin chars:<input type=text id=qfi15-1 class='fillin size-3'></input> End                { return chars.join(''); }
+C     = Begin chars:<input type=text id=qfi15-1 class='fillin size-4'></input> End                { return chars.join(''); }
 T     =   C 
         / (!<input type=text id=qfi15-2 class='fillin size-5'></input> <input type=text id=qfi15-3 class='fillin size-4'></input> char:ANY)           { return char;}
 Begin = '(*'
@@ -474,7 +472,7 @@ Complete el código de <tt>tree</tt>:
 {
   var tree = function(f, r) {
     if (r.<input type=text id=qfi18-1 class='fillin size-6'></input> > 0) {
-      var last = r.<input type=text id=qfi18-2 class='fillin size-3'></input>();
+      var last = r.<input type=text id=qfi18-2 class='fillin size-4'></input>();
       var result = {
         type:  <input type=text id=qfi18-3 class='fillin size-7'></input>,
         left: <input type=text id=qfi18-4 class='fillin size-10'></input>,
@@ -491,12 +489,14 @@ Complete el código de <tt>tree</tt>:
 <div id=qfi18-5r class=quiz></div></br></br>      </div>
     </li>
   </ol>
+  <div id="score" class="score">
+  </div>
   <div class="btn-footer">
     <button type="button" id="submit" class="btn btn-primary">
 Submit    </button>
     <button type="button" id="reset" class="btn btn-warning">
 Reset    </button>
-    <button type="button" id="deletestorage" class="btn btn-danger">
+    <button type="button" id="deleteStorage" class="btn btn-danger">
 Delete storage    </button>
   </div>
 </form>
@@ -525,23 +525,18 @@ Delete storage    </button>
         <![endif]-->
       
     <!-- Codehelper -->
-    <script type=text/javascript src=http://www.codehelper.io/api/ips/?js></script>
+    
     <!-- Internationalization -->
-    <script>      i18n = {};
-      i18n['ES'] = {}
-      i18n['ES']['correct'] = "Correcto";
-      i18n['ES']['incorrect'] = "Incorrecto";
-      i18n['ES']['points'] = "puntos";
-      i18n['EN'] = {}
-      i18n['EN']['correct'] = "Correct";
-      i18n['EN']['incorrect'] = "Incorrect";
-      i18n['EN']['points'] = "points";
+    <script>      i18n = {"en":{"quiz":{"title":"Quiz"},"questions":{"correct":"Correct","incorrect":"Incorrect","points":"points","score":"Total score"},"buttons":{"submit":"Submit","reset":"Reset","delete":"Delete storage"},"alerts":{"storage":"Local storage deleted"}}}
 </script>
     <!-- XRegexp -->
     <script type=text/javascript src=http://cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp-min.js></script>
     <!-- Form validation -->
-    <script>      data = {"question-0":{"question_text":"\nDado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:\n\\( A^* = \\cup_{n=1}^{\\infty} A^n \\)\nSe admite que $A^0 = { \\epsilon }$, donde $\\epsilon$ denota la\n--------------- --- esto es\nla palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.","answers":{"qfi1-1":{"answer_text":"/palabra/i","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/vac[ií]a/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"\nUna producción de la forma $A \\rightarrow A \\alpha$.\nse dice que es --------- por la ---------\n","answers":{"qfi2-1":{"answer_text":"/recursiva/i","correct":true,"explanation":null,"type":"Regexp"},"qfi2-2":{"answer_text":"/izquierda/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"Encuentre una gramática equivalente a esta:\n      <pre>\n        A: A 'a' | 'b'\n      </pre>\n      pero que no sea recursiva por la izquierda:\n      <pre>\n        A: -----\n        R: /* vacío */ | -----\n      </pre>\n    ","answers":{"qfi3-1":{"answer_text":"/'b'\\s*R/","correct":true,"explanation":null,"type":"Regexp"},"qfi3-2":{"answer_text":"/'a'\\s*R/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-3":{"question_text":"\nRecuerde el <b>analizador sintáctico descendente predictivo recursivo</b> \npara la <a id=\"grammar\">gramática</a>:<br/>\n<ul>\n  <li> $\\Sigma = \\{ ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM \\}$\n  <li> $V = \\{ statements, statement, condition, expression, term, factor \\}$\n  <li> Productions:\n  <ol>\n    <li>\n    statements  $ \\rightarrow$ statement ';' statements  $\\vert$ statement\n    <li>\n    statement  $ \\rightarrow$ ID '=' expression  $\\vert$ P expression\n $ \\vert$ IF condition THEN statement·\n    <li> condition $ \\rightarrow$ expression COMPARISON expression\n    <li>\n    expression  $ \\rightarrow$ term ADDOP expression  $\\vert$ term\n    <li>\n    term  $ \\rightarrow$ factor MULOP term  $\\vert$ factor\n    <li>\n    factor  $ \\rightarrow$ '(' expression ')' $\\vert$ ID $ \\vert$ NUM\n  </ol>\n  <li> Start symbol: $statements$\n</ul>\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>expression</tt>:\n<pre>\n  expression = ->\n    result = term()\n    while --------- and -------------- is \"ADDOP\"\n      type = ---------.-----\n      match \"ADDOP\"\n      right = ------\n      result =\n        type: ----\n        left: result\n        right: right\n    result\n</pre>\n","answers":{"qfi4-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-2":{"answer_text":"lookahead.type","correct":true,"explanation":null,"type":"String"},"qfi4-3":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-4":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi4-5":{"answer_text":"term()","correct":true,"explanation":null,"type":"String"},"qfi4-6":{"answer_text":"type","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-4":{"question_text":"\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>statement</tt> para la <a href=\"#grammar\">gramática\ndefinida anteriormente</a>:\n<pre>\n  statement = ->\n    result = null\n    if --------- and ---------.---- is \"ID\"\n      left =\n        type: \"ID\"\n        value: ---------.-----\n\n      match \"ID\"\n      match \"=\"\n      right = ----------()\n      result =\n        type: \"=\"\n        left: left\n        right: right\n    else if lookahead and lookahead.type is \"P\"\n      match \"P\"\n      right = ------------\n      result =\n        type: \"P\"\n        value: right\n    else if lookahead and lookahead.type is \"IF\"\n      match \"IF\"\n      left = -----------\n      match \"THEN\"\n      right = -----------\n      result =\n        type: \"IF\"\n        left: left\n        right: right\n    else # Error!\n      throw \"Syntax Error. Expected identifier but found \" + \n        (if lookahead then lookahead.value else \"end of input\") + \n        \" near '#{input.substr(lookahead.from)}'\"\n    result\n\n</pre>\n","answers":{"qfi5-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-3":{"answer_text":"type","correct":true,"explanation":null,"type":"String"},"qfi5-4":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-5":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi5-6":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"},"qfi5-7":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi5-8":{"answer_text":"condition()","correct":true,"explanation":null,"type":"String"},"qfi5-9":{"answer_text":"statement()","correct":true,"explanation":null,"type":"String"}},"points":3,"order":true,"question_comment":""},"question-5":{"question_text":"Rellene las partes que faltan del código CoffeeScript\nque reconoce el sublenguaje generado por <i>condition</i>:\n  <pre>\n  condition = ->\n    left = -----------\n    type = ---------.-----\n    match \"COMPARISON\"\n    right = ----------()\n    result =\n      type: type\n      left: left\n      right: right\n    result\n  </pre>\n","answers":{"qfi6-1":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi6-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi6-3":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi6-4":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-6":{"question_text":"\nComplete este fragmento de <tt>slim</tt> que establece el favicon de \nla página HTML:\n<pre>\n    link rel=\"-------------\" type=\"image/jpg\" href=\"images/favicon.jpg\"\n</pre>","answers":{"qfi7-1":{"answer_text":"/(shortcut\\s+)?icon/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-7":{"question_text":"\n      Para que un repositorio con una aplicación escrita en Ruby-Sinatra\n      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:\n      <pre>\n      heroku ------ ------\n      </pre>\n      Este comando crea un remoto git cuyo nombre es ------\n      y cuya URL es \n      <pre>\n        git@heroku.com:-------.git\n      </pre>\n      La URL de publicación/despliegue será:\n      http://---------.---------.com/\n      <br/>\n      Una vez que todo esta listo, para publicar nuestra versión\n      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:\n      <pre>\n      git ---- ------ master\n      <br/>\n      </pre>\n      Si la versión que queremos publicar en heroku no está en la rama\n      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos \n      modificar el comando anterior:\n      <pre>\n      git push ------ ----:------\n      </pre>\n      Para ver los logs deberemos emitir el comando:\n      <pre>\n       heroku ----\n      </pre>\n    ","answers":{"qfi8-1":{"answer_text":"create","correct":true,"explanation":null,"type":"String"},"qfi8-2":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-3":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-4":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-5":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-6":{"answer_text":"herokuapp","correct":true,"explanation":null,"type":"String"},"qfi8-7":{"answer_text":"push","correct":true,"explanation":null,"type":"String"},"qfi8-8":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-9":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-10":{"answer_text":"tutu","correct":true,"explanation":null,"type":"String"},"qfi8-11":{"answer_text":"master","correct":true,"explanation":null,"type":"String"},"qfi8-12":{"answer_text":"logs","correct":true,"explanation":null,"type":"String"}},"points":6,"order":true,"question_comment":""},"question-8":{"question_text":"Con que subcomando del cliente <tt>heroku</tt> abro el navegador\n    en la URL del proyecto?<br/>\n    <pre>\n    heroku ----\n    </pre>","answers":{"qfi9-1":{"answer_text":"open","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-9":{"question_text":"\n      Escriba la parte que falta para que \n      el programa PEGJS reconozca el lenguaje\n      $\\{ a^n b^n c^n\\ /\\ n \\ge{} 1\\}$\n      <pre>\n      S = -------- 'a'+ B !('a'/'b'/'c')\n      A = 'a' A? 'b'\n      B = 'b' B? 'c'\n      </pre>\n    ","answers":{"qfi10-1":{"answer_text":"/\\&\\s*\\(\\s*A\\s*'c'\\s*\\)/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-10":{"question_text":"\nDado el PEGjs<a id=\"pegif\"></a>:\n<pre>\nS =   if C:C then S1:S else S2:S { return [ 'ifthenelse', C, S1, S2 ]; }\n    / if C:C then S:S            { return [ 'ifthen', C, S]; }\n    / O                          { return 'O'; }\n_ = ' '*\nC = _'c'_                        { return 'c'; }\nO = _'o'_                        { return 'o'; }\nelse = _'else'_                 \nif = _'if'_\nthen = _'then'_    \n</pre>\nConsidere esta entrada:\n<pre>\nif c then if c then o else o\n</pre>\n<!-- ['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']] -->\n¿Cuál de los dos árboles es construido para la misma?:\n","answers":{"qmc11-1":{"answer_text":"<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt>","correct":true,"explanation":null},"qmc11-2":{"answer_text":"<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt>","correct":false,"explanation":""}},"points":1,"question_comment":""},"question-11":{"question_text":"Si en el <a href=\"#pegif\">peg anterior</a> cambiamos el orden de las dos primeras reglas de <tt>S</tt>:\n<pre>\n  S =   if C:C then S:S            { return [ 'ifthen', C, S]; }\n      / if C:C then S1:S else S2:S { return [ 'ifthenelse', C, S1, S2 ]; }\n</pre>\nPara la misma entrada:\n<pre>\nif c then if c then o else o\n</pre>\n<!-- ['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']] -->\n¿Cuál de las respuestas es correcta?\n    ","answers":{"qmc12-1":{"answer_text":"<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt>","correct":false,"explanation":""},"qmc12-2":{"answer_text":"<tt>Syntax Error</tt>. La frase no es aceptada por el peg","correct":true,"explanation":null},"qmc12-3":{"answer_text":"<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt>","correct":false,"explanation":""}},"points":1,"question_comment":""},"question-12":{"question_text":"\nRellene las partes que faltan de este código para que funcione:\n<pre>\nvar PEG = require (\"pegjs\");\nvar grammar = \"s = ('a' / 'b')+\";\nvar parser = PEG.-----------(grammar);\nvar input = process.argv[---] || 'abba';\nconsole.log(parser.parse(input))\n</pre>\nCuando se ejecuta, este código produce:\n<pre>\n[~/srcPLgrado/pegjs/examples(master)]$ node abba.pegjs abb\n[ 'a', 'b', 'b' ]\n</pre>\n    ","answers":{"qfi13-1":{"answer_text":"buildparser","correct":true,"explanation":null,"type":"String"},"qfi13-2":{"answer_text":"2","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-13":{"question_text":"\n<a id=\"anbncn\"></a>\nComplete las partes que faltan para que el PEGjs reconozca este\nclásico ejemplo de lenguaje que no es independiente del contexto\n               $\\{ a^nb^nc^n / n \\ge{} 1 \\}$\n<pre>\nS = ---(--- ---) 'a'+ B:--- !('c'/[---]) { return B; }\nA = 'a' A:A? 'b' { if (A) { return A+1; } else return 1; }\nB = 'b' B:B? 'c' { if (B) { return B+1; } else return 1; }\n</pre>\n    ","answers":{"qfi14-1":{"answer_text":"&","correct":true,"explanation":null,"type":"String"},"qfi14-2":{"answer_text":"a","correct":true,"explanation":null,"type":"String"},"qfi14-3":{"answer_text":"'c'","correct":true,"explanation":null,"type":"String"},"qfi14-4":{"answer_text":"b","correct":true,"explanation":null,"type":"String"},"qfi14-5":{"answer_text":"^c","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-14":{"question_text":"\nrellene las partes que faltan del siguiente programa PEGjs que reconoce\nlos comentarios Pascal:\n<pre>\nP     =   prog:N+                          { return prog; }\nN     =   chars:$(!Begin ANY)+             { return chars;}\n        / C\nC     = Begin chars:--- End                { return chars.join(''); }\nT     =   C \n        / (!----- ---- char:ANY)           { return char;}\nBegin = '(*'\nEnd   = '*)'\nANY   =   'z'    /* any character */       { return 'z';  }\n        / char:----                        { return char; }    \n</pre>\n    ","answers":{"qfi15-1":{"answer_text":"t*","correct":true,"explanation":null,"type":"String"},"qfi15-2":{"answer_text":"begin","correct":true,"explanation":null,"type":"String"},"qfi15-3":{"answer_text":"!end","correct":true,"explanation":null,"type":"String"},"qfi15-4":{"answer_text":"[^z]","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-15":{"question_text":"\nRellene las partes que faltan de esta clase que implementa \npersistencia para programas PL0 usando el ORM DataMapper:\n<pre>\nDataMapper.-----(:default,·\n                 ENV['DATABASE_URL'] || \"sqlite3://#{Dir.pwd}/database.db\" )\n\nclass PL0Program\n  include ----------::--------\n··\n  -------- :name, String, :key => true\n  -------- :source, String, :length => 1..1024\nend\n\n  DataMapper.--------\n  DataMapper.-------------\n</pre>\n","answers":{"qfi16-1":{"answer_text":"setup","correct":true,"explanation":null,"type":"String"},"qfi16-2":{"answer_text":"datamapper","correct":true,"explanation":null,"type":"String"},"qfi16-3":{"answer_text":"resource","correct":true,"explanation":null,"type":"String"},"qfi16-4":{"answer_text":"property","correct":true,"explanation":null,"type":"String"},"qfi16-5":{"answer_text":"property","correct":true,"explanation":null,"type":"String"},"qfi16-6":{"answer_text":"finalize","correct":true,"explanation":null,"type":"String"},"qfi16-7":{"answer_text":"auto_upgrade!","correct":true,"explanation":null,"type":"String"}},"points":4,"order":true,"question_comment":""},"question-16":{"question_text":"\nRellene las partes que faltan del siguiente fragmento de código\nde la ruta <tt>/save</tt>\nque guarda el programa solicitado:\n<pre>\npost '/save' do\n  name = params[:fname]\n  c  = PL0Program.-----(:name => name)\n  if c\n    c.source = params[\"input\"]\n    c.----\n  else\n    c = PL0Program.new\n    c.name = params[\"fname\"]\n    c.source = params[\"input\"]\n    c.----\n  end\n  -------- '/'\nend\n</pre>\n","answers":{"qfi17-1":{"answer_text":"first","correct":true,"explanation":null,"type":"String"},"qfi17-2":{"answer_text":"save","correct":true,"explanation":null,"type":"String"},"qfi17-3":{"answer_text":"save","correct":true,"explanation":null,"type":"String"},"qfi17-4":{"answer_text":"redirect","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-17":{"question_text":"\nEn la práctica del PEGjs tratabamos las expresiones aritméticas \nmediante estas dos reglas:\n<pre>\nexp    = t:term   r:(ADD term)*   { return tree(t,r); }\nterm   = f:factor r:(MUL factor)* { return tree(f,r); }\nADD      = _ op:[+-] _ { return op; }\nMUL      = _ op:[*/] _ { return op; }\n</pre>\nComplete el código de <tt>tree</tt>:\n<pre>\n{\n  var tree = function(f, r) {\n    if (r.------ > 0) {\n      var last = r.---();\n      var result = {\n        type:  -------,\n        left: ----------,\n        right: -------\n      };\n    }\n    else {\n      var result = f;\n    }\n    return result;\n  }\n}\n</pre>\n","answers":{"qfi18-1":{"answer_text":"length","correct":true,"explanation":null,"type":"String"},"qfi18-2":{"answer_text":"pop","correct":true,"explanation":null,"type":"String"},"qfi18-3":{"answer_text":"/last\\s*\\[\\s*0\\s*\\]/","correct":true,"explanation":null,"type":"Regexp"},"qfi18-4":{"answer_text":"/tree\\s*\\(\\s*f\\s*,\\s*r\\s*\\)/","correct":true,"explanation":null,"type":"Regexp"},"qfi18-5":{"answer_text":"/last\\s*\\[\\s*1\\s*\\]/","correct":true,"explanation":null,"type":"Regexp"}},"points":4,"order":true,"question_comment":""}};
-
+    <script>      data = {"question-0":{"question_text":"\nDado un conjunto $A$, se define $A^*$ el cierre de Kleene de $A$ como:\n\\( A^* = \\cup_{n=1}^{\\infty} A^n \\)\nSe admite que $A^0 = { \\epsilon }$, donde $\\epsilon$ denota la\n------- ---- esto es\nla palabra que tiene longitud cero, formada por cero símbolos del conjunto base $A$.","answers":{"qfi1-1":{"answer_text":"/palabra/i","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/vac[ií]a/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"\nUna producción de la forma $A \\rightarrow A \\alpha$.\nse dice que es --------- por la ---------\n","answers":{"qfi2-1":{"answer_text":"/recursiva/i","correct":true,"explanation":null,"type":"Regexp"},"qfi2-2":{"answer_text":"/izquierda/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"Encuentre una gramática equivalente a esta:\n      <pre>\n        A: A 'a' | 'b'\n      </pre>\n      pero que no sea recursiva por la izquierda:\n      <pre>\n        A: -----\n        R: /* vacío */ | -----\n      </pre>\n    ","answers":{"qfi3-1":{"answer_text":"/   'b'\n                 \\s*\n                  R\n             /x","correct":true,"explanation":null,"type":"Regexp"},"qfi3-2":{"answer_text":"/'a'\\s*R/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-3":{"question_text":"\nRecuerde el <b>analizador sintáctico descendente predictivo recursivo</b> \npara la <a id=\"grammar\">gramática</a>:<br/>\n<ul>\n  <li> $\\Sigma = { ; =, ID, P, ADDOP, MULOP, COMPARISON, (, ), NUM }$\n  <li> $V = \\{ statements, statement, condition, expression, term, factor \\}$\n  <li> Productions:\n  <ol>\n    <li>\n    statements  $ \\rightarrow$ statement ';' statements  $\\vert$ statement\n    <li>\n    statement  $ \\rightarrow$ ID '=' expression  $\\vert$ P expression\n $ \\vert$ IF condition THEN statement·\n    <li> condition $ \\rightarrow$ expression COMPARISON expression\n    <li>\n    expression  $ \\rightarrow$ term ADDOP expression  $\\vert$ term\n    <li>\n    term  $ \\rightarrow$ factor MULOP term  $\\vert$ factor\n    <li>\n    factor  $ \\rightarrow$ '(' expression ')' $\\vert$ ID $ \\vert$ NUM\n  </ol>\n  <li> Start symbol: $statements$\n</ul>\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>expression</tt>:\n<pre>\n  expression = ->\n    result = term()\n    while --------- and -------------- is \"ADDOP\"\n      type = ---------.-----\n      match \"ADDOP\"\n      right = ------\n      result =\n        type: ----\n        left: result\n        right: right\n    result\n</pre>\n","answers":{"qfi4-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-2":{"answer_text":"lookahead.type","correct":true,"explanation":null,"type":"String"},"qfi4-3":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi4-4":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi4-5":{"answer_text":"term()","correct":true,"explanation":null,"type":"String"},"qfi4-6":{"answer_text":"type","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-4":{"question_text":"\nRellene las partes que faltan de código CoffeeScript del \nmétodo que se encarga de reconocer el lenguaje generado\npor <tt>statement</tt> para la <a href=\"#grammar\">gramática\ndefinida anteriormente</a>:\n<pre>\n  statement = ->\n    result = null\n    if --------- and ---------.---- is \"ID\"\n      left =\n        type: \"ID\"\n        value: ---------.-----\n\n      match \"ID\"\n      match \"=\"\n      right = ----------()\n      result =\n        type: \"=\"\n        left: left\n        right: right\n    else if lookahead and lookahead.type is \"P\"\n      match \"P\"\n      right = ------------\n      result =\n        type: \"P\"\n        value: right\n    else if lookahead and lookahead.type is \"IF\"\n      match \"IF\"\n      left = -----------\n      match \"THEN\"\n      right = -----------\n      result =\n        type: \"IF\"\n        left: left\n        right: right\n    else # Error!\n      throw \"Syntax Error. Expected identifier but found \" + \n        (if lookahead then lookahead.value else \"end of input\") + \n        \" near '#{input.substr(lookahead.from)}'\"\n    result\n\n</pre>\n","answers":{"qfi5-1":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-3":{"answer_text":"type","correct":true,"explanation":null,"type":"String"},"qfi5-4":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi5-5":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi5-6":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"},"qfi5-7":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi5-8":{"answer_text":"condition()","correct":true,"explanation":null,"type":"String"},"qfi5-9":{"answer_text":"statement()","correct":true,"explanation":null,"type":"String"}},"points":3,"order":true,"question_comment":""},"question-5":{"question_text":"Rellene las partes que faltan del código CoffeeScript\nque reconoce el sublenguaje generado por <i>condition</i>:\n  <pre>\n  condition = ->\n    left = -----------\n    type = ---------.-----\n    match \"COMPARISON\"\n    right = ----------()\n    result =\n      type: type\n      left: left\n      right: right\n    result\n  </pre>\n","answers":{"qfi6-1":{"answer_text":"expression()","correct":true,"explanation":null,"type":"String"},"qfi6-2":{"answer_text":"lookahead","correct":true,"explanation":null,"type":"String"},"qfi6-3":{"answer_text":"value","correct":true,"explanation":null,"type":"String"},"qfi6-4":{"answer_text":"expression","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-6":{"question_text":"\nComplete este fragmento de <tt>slim</tt> que establece el favicon de \nla página HTML:\n<pre>\n    link rel=\"-------------\" type=\"image/jpg\" href=\"images/favicon.jpg\"\n</pre>","answers":{"qfi7-1":{"answer_text":"/(shortcut\\s+)?icon/i","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-7":{"question_text":"\n      Para que un repositorio con una aplicación escrita en Ruby-Sinatra\n      pueda desplegarse en Heroku con nombre <tt>chuchu</tt> el primer comando   que debemos escribir es:\n      <pre>\n      heroku ------ ------\n      </pre>\n      Este comando crea un remoto git cuyo nombre es ------\n      y cuya URL es \n      <pre>\n        git@heroku.com:-------.git\n      </pre>\n      La URL de publicación/despliegue será:\n      http://---------.---------.com/\n      <br/>\n      Una vez que todo esta listo, para publicar nuestra versión\n      en la rama <tt>master</tt> en heroku debemos ejecutar el comando:\n      <pre>\n      git ---- ------ master\n      <br/>\n      </pre>\n      Si la versión que queremos publicar en heroku no está en la rama\n      <tt>master</tt> sino que está en la rama <tt>tutu</tt> deberemos \n      modificar el comando anterior:\n      <pre>\n      git push ------ ----:------\n      </pre>\n      Para ver los logs deberemos emitir el comando:\n      <pre>\n       heroku ----\n      </pre>\n    ","answers":{"qfi8-1":{"answer_text":"create","correct":true,"explanation":null,"type":"String"},"qfi8-2":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-3":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-4":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-5":{"answer_text":"chuchu","correct":true,"explanation":null,"type":"String"},"qfi8-6":{"answer_text":"herokuapp","correct":true,"explanation":null,"type":"String"},"qfi8-7":{"answer_text":"push","correct":true,"explanation":null,"type":"String"},"qfi8-8":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-9":{"answer_text":"heroku","correct":true,"explanation":null,"type":"String"},"qfi8-10":{"answer_text":"tutu","correct":true,"explanation":null,"type":"String"},"qfi8-11":{"answer_text":"master","correct":true,"explanation":null,"type":"String"},"qfi8-12":{"answer_text":"logs","correct":true,"explanation":null,"type":"String"}},"points":6,"order":true,"question_comment":""},"question-8":{"question_text":"Con que subcomando del cliente <tt>heroku</tt> abro el navegador\n    en la URL del proyecto?<br/>\n    <pre>\n    heroku ----\n    </pre>","answers":{"qfi9-1":{"answer_text":"open","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-9":{"question_text":"\n      Escriba la parte que falta para que \n      el programa PEGJS reconozca el lenguaje\n      $\\{ a^n b^n c^n\\ /\\ n \\ge{} 1\\}$\n      <pre>\n      S = -------- 'a'+ B !('a'/'b'/'c')\n      A = 'a' A? 'b'\n      B = 'b' B? 'c'\n      </pre>\n    ","answers":{"qfi10-1":{"answer_text":"/\\&\\s*\\(\\s*A\\s*'c'\\s*\\)/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-10":{"question_text":"\nDado el PEGjs<a id=\"pegif\"></a>:\n<pre>\nS =   if C:C then S1:S else S2:S { return [ 'ifthenelse', C, S1, S2 ]; }\n    / if C:C then S:S            { return [ 'ifthen', C, S]; }\n    / O                          { return 'O'; }\n_ = ' '*\nC = _'c'_                        { return 'c'; }\nO = _'o'_                        { return 'o'; }\nelse = _'else'_                 \nif = _'if'_\nthen = _'then'_    \n</pre>\nConsidere esta entrada:\n<pre>\nif c then if c then o else o\n</pre>\n<!-- ['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']] -->\n¿Cuál de los dos árboles es construido para la misma?:\n","answers":{"qmc11-1":{"answer_text":"<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt>","correct":true,"explanation":null},"qmc11-2":{"answer_text":"<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt>","correct":false,"explanation":""}},"points":1,"question_comment":""},"question-11":{"question_text":"Si en el <a href=\"#pegif\">peg anterior</a> cambiamos el orden de las dos primeras reglas de <tt>S</tt>:\n<pre>\n  S =   if C:C then S:S            { return [ 'ifthen', C, S]; }\n      / if C:C then S1:S else S2:S { return [ 'ifthenelse', C, S1, S2 ]; }\n</pre>\nPara la misma entrada:\n<pre>\nif c then if c then o else o\n</pre>\n<!-- ['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']] -->\n¿Cuál de las respuestas es correcta?\n    ","answers":{"qmc12-1":{"answer_text":"<tt>Syntax Error</tt>. La frase no es aceptada por el peg","correct":true,"explanation":null},"qmc12-2":{"answer_text":"<tt>['ifthen', 'c', ['ifthenelse', 'c', 'o', 'o']]</tt>","correct":false,"explanation":""},"qmc12-3":{"answer_text":"<tt>['ifthenelse', 'c', ['ifthen', 'c', 'o'], 'o']]</tt>","correct":false,"explanation":""}},"points":1,"question_comment":""},"question-12":{"question_text":"\nRellene las partes que faltan de este código para que funcione:\n<pre>\nvar PEG = require (\"pegjs\");\nvar grammar = \"s = ('a' / 'b')+\";\nvar parser = PEG.-----------(grammar);\nvar input = process.argv[---] || 'abba';\nconsole.log(parser.parse(input))\n</pre>\nCuando se ejecuta, este código produce:\n<pre>\n[~/srcPLgrado/pegjs/examples(master)]$ node abba.pegjs abb\n[ 'a', 'b', 'b' ]\n</pre>\n    ","answers":{"qfi13-1":{"answer_text":"buildparser","correct":true,"explanation":null,"type":"String"},"qfi13-2":{"answer_text":"2","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-13":{"question_text":"\n<a id=\"anbncn\"></a>\nComplete las partes que faltan para que el PEGjs reconozca este\nclásico ejemplo de lenguaje que no es independiente del contexto\n               $\\{ a^nb^nc^n / n \\ge{} 1 \\}$\n<pre>\nS = ----(---- ----) 'a'+ B:---- !('c'/[----]) { return B; }\nA = 'a' A:A? 'b' { if (A) { return A+1; } else return 1; }\nB = 'b' B:B? 'c' { if (B) { return B+1; } else return 1; }\n</pre>\n    ","answers":{"qfi14-1":{"answer_text":"&","correct":true,"explanation":null,"type":"String"},"qfi14-2":{"answer_text":"a","correct":true,"explanation":null,"type":"String"},"qfi14-3":{"answer_text":"'c'","correct":true,"explanation":null,"type":"String"},"qfi14-4":{"answer_text":"b","correct":true,"explanation":null,"type":"String"},"qfi14-5":{"answer_text":"^c","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-14":{"question_text":"\nrellene las partes que faltan del siguiente programa PEGjs que reconoce\nlos comentarios Pascal:\n<pre>\nP     =   prog:N+                          { return prog; }\nN     =   chars:$(!Begin ANY)+             { return chars;}\n        / C\nC     = Begin chars:---- End                { return chars.join(''); }\nT     =   C \n        / (!----- ---- char:ANY)           { return char;}\nBegin = '(*'\nEnd   = '*)'\nANY   =   'z'    /* any character */       { return 'z';  }\n        / char:----                        { return char; }    \n</pre>\n    ","answers":{"qfi15-1":{"answer_text":"t*","correct":true,"explanation":null,"type":"String"},"qfi15-2":{"answer_text":"begin","correct":true,"explanation":null,"type":"String"},"qfi15-3":{"answer_text":"!end","correct":true,"explanation":null,"type":"String"},"qfi15-4":{"answer_text":"[^z]","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-15":{"question_text":"\nRellene las partes que faltan de esta clase que implementa \npersistencia para programas PL0 usando el ORM DataMapper:\n<pre>\nDataMapper.-----(:default,·\n                 ENV['DATABASE_URL'] || \"sqlite3://#{Dir.pwd}/database.db\" )\n\nclass PL0Program\n  include ----------::--------\n··\n  -------- :name, String, :key => true\n  -------- :source, String, :length => 1..1024\nend\n\n  DataMapper.--------\n  DataMapper.-------------\n</pre>\n","answers":{"qfi16-1":{"answer_text":"setup","correct":true,"explanation":null,"type":"String"},"qfi16-2":{"answer_text":"datamapper","correct":true,"explanation":null,"type":"String"},"qfi16-3":{"answer_text":"resource","correct":true,"explanation":null,"type":"String"},"qfi16-4":{"answer_text":"property","correct":true,"explanation":null,"type":"String"},"qfi16-5":{"answer_text":"property","correct":true,"explanation":null,"type":"String"},"qfi16-6":{"answer_text":"finalize","correct":true,"explanation":null,"type":"String"},"qfi16-7":{"answer_text":"auto_upgrade!","correct":true,"explanation":null,"type":"String"}},"points":4,"order":true,"question_comment":""},"question-16":{"question_text":"\nRellene las partes que faltan del siguiente fragmento de código\nde la ruta <tt>/save</tt>\nque guarda el programa solicitado:\n<pre>\npost '/save' do\n  name = params[:fname]\n  c  = PL0Program.-----(:name => name)\n  if c\n    c.source = params[\"input\"]\n    c.----\n  else\n    c = PL0Program.new\n    c.name = params[\"fname\"]\n    c.source = params[\"input\"]\n    c.----\n  end\n  -------- '/'\nend\n</pre>\n","answers":{"qfi17-1":{"answer_text":"first","correct":true,"explanation":null,"type":"String"},"qfi17-2":{"answer_text":"save","correct":true,"explanation":null,"type":"String"},"qfi17-3":{"answer_text":"save","correct":true,"explanation":null,"type":"String"},"qfi17-4":{"answer_text":"redirect","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-17":{"question_text":"\nEn la práctica del PEGjs tratabamos las expresiones aritméticas \nmediante estas dos reglas:\n<pre>\nexp    = t:term   r:(ADD term)*   { return tree(t,r); }\nterm   = f:factor r:(MUL factor)* { return tree(f,r); }\nADD      = _ op:[+-] _ { return op; }\nMUL      = _ op:[*/] _ { return op; }\n</pre>\nComplete el código de <tt>tree</tt>:\n<pre>\n{\n  var tree = function(f, r) {\n    if (r.------ > 0) {\n      var last = r.----();\n      var result = {\n        type:  -------,\n        left: ----------,\n        right: -------\n      };\n    }\n    else {\n      var result = f;\n    }\n    return result;\n  }\n}\n</pre>\n","answers":{"qfi18-1":{"answer_text":"length","correct":true,"explanation":null,"type":"String"},"qfi18-2":{"answer_text":"pop","correct":true,"explanation":null,"type":"String"},"qfi18-3":{"answer_text":"/last\\s*\\[\\s*0\\s*\\]/","correct":true,"explanation":null,"type":"Regexp"},"qfi18-4":{"answer_text":"/tree\\s*\\(\\s*f\\s*,\\s*r\\s*\\)/","correct":true,"explanation":null,"type":"Regexp"},"qfi18-5":{"answer_text":"/last\\s*\\[\\s*1\\s*\\]/","correct":true,"explanation":null,"type":"Regexp"}},"points":4,"order":true,"question_comment":""}};
+      language = 'en';
+      totalPoints = 31;
+      userPoints = 0;
+      
       function findCorrectAnswer(idQuestion, questionType) {
         correctIds = [];
         for (id in data[idQuestion]['answers']) {
@@ -578,7 +573,7 @@ Delete storage    </button>
             nIncorrects += 1;
         });
         
-        calculateMark(data[x.toString()], x.toString(), null, 3, nCorrects, nIncorrects);
+        userPoints += calculateMark(data[x.toString()], x.toString(), null, 3, nCorrects, nIncorrects);
       }
       
       function printResults(id, type, explanation, typeQuestion) {
@@ -586,15 +581,15 @@ Delete storage    </button>
           $("br[class=" + id + "br" + "]").detach();
           if (type == 1) {
             if ((explanation == "") || (explanation == null))
-              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['correct'] + "</strong></br>");
+              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['questions']['correct'] + "</strong></br>");
             else
-              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['correct'] + " - " + explanation + "</strong></br>");
+              $("div[id ~= " + id + "r" + "]").html("<strong class=correct> " + i18n[language]['questions']['correct'] + " - " + explanation + "</strong></br>");
           }
           else {
             if ((explanation == "") || (explanation == null))
-              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['incorrect'] + "</strong></br>");
+              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['questions']['incorrect'] + "</strong></br>");
             else
-              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['incorrect'] + " - " + explanation + "</strong></br>");
+              $("div[id ~= " + id + "r" + "]").html("<strong class=incorrect> " + i18n[language]['questions']['incorrect'] + " - " + explanation + "</strong></br>");
           }
         }
         else {          // FillIn
@@ -622,11 +617,18 @@ Delete storage    </button>
       }
       
       function calculateMark(question, id, result, typeQuestion, numberCorrects, numberIncorrects) {
+        stringPoints = i18n[language]['questions']['points'];
         if (typeQuestion == 2) {
-          if (result)
-            $("#" + id).append("<strong class=mark> " + question['points'].toFixed(2) + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
-          else
-            $("#" + id).append("<strong class=mark> 0.00/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
+          if (result) {
+            $("#" + id).append("<strong class=mark> " + question['points'].toFixed(2) + "/" + question['points'].toFixed(2) + " " + stringPoints + "</strong></br></br>");
+            
+            return parseFloat(question['points']);
+          }
+          else {
+            $("#" + id).append("<strong class=mark> 0.00/" + question['points'].toFixed(2) + " " + stringPoints + "</strong></br></br>");
+            
+            return parseFloat(0);
+          }
         }
         else if (typeQuestion == 1) {
           size = 0;
@@ -635,7 +637,9 @@ Delete storage    </button>
               size += 1;
               
           pointsUser = ((question['points'] / size) * numberCorrects).toFixed(2);
-          $("#" + id).append("<strong class=mark> " + pointsUser + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");
+          $("#" + id).append("<strong class=mark> " + pointsUser + "/" + question['points'].toFixed(2) + " " + stringPoints + "</strong></br></br>");
+         
+          return parseFloat(pointsUser);
         }
         else {
           totalCorrects = 0;
@@ -651,7 +655,9 @@ Delete storage    </button>
           if (mark < 0)
             mark = 0;
             
-          $("#" + id).append("<strong class=mark> " + mark.toFixed(2) + "/" + question['points'].toFixed(2) + " " + i18n[language]['points'] + "</strong></br></br>");        
+          $("#" + id).append("<strong class=mark> " + mark.toFixed(2) + "/" + question['points'].toFixed(2) + " " + stringPoints + "</strong></br></br>");        
+          
+          return parseFloat(mark);
         }
       }
       
@@ -674,7 +680,7 @@ Delete storage    </button>
                     }
                   }
                   else {  // Answer is a Regexp
-                    if (userAnswers[u].match(correctAnswers[y])) {
+                    if (XRegExp.exec(userAnswers[u], correctAnswers[y])) {
                       correction[u] = true;
                       checkedAnswers[u] = userAnswers[u];
                       matchedCorrect = true;
@@ -700,7 +706,7 @@ Delete storage    </button>
                   correction[u] = false;
               }
               else {
-                if (userAnswers[u].match(correctAnswers[u]))
+                if (XRegExp.exec(userAnswers[u], correctAnswers[u]))
                   correction[u] = true;
                 else
                   correction[u] = false;
@@ -720,7 +726,7 @@ Delete storage    </button>
                     correction[u] = y.toString();
                 }
                 else {
-                  if (userAnswers[u].match(distractorAnswers[y]))
+                  if (XRegExp.exec(userAnswers[u], distractorAnswers[y]))
                     correction[u] = y.toString();
                 }
               }
@@ -749,7 +755,10 @@ Delete storage    </button>
                     string = data[x.toString()]['answers'][ans]['answer_text'].split('/');
                     regexp = string[1];
                     options = string[2];
-                    correctAnswers[ans.toString()] = RegExp(regexp, options);
+                    correctAnswers[ans.toString()] = XRegExp(regexp, options);
+                  }
+                  else if (data[x.toString()]['answers'][ans]['type'] == "Proc") {
+                  
                   }
                   else { // String or Number
                     correctAnswers[ans.toString()] = data[x.toString()]['answers'][ans]['answer_text'];
@@ -761,7 +770,10 @@ Delete storage    </button>
                     string = data[x.toString()]['answers'][ans]['answer_text'].split('/');
                     regexp = string[1];
                     options = string[2];
-                    distractorAnswers[ans.toString()] = RegExp(regexp, options);
+                    distractorAnswers[ans.toString()] = XRegExp(regexp, options);
+                  }
+                  else if (data[x.toString()]['answers'][ans]['type'] == "Proc") {
+                  
                   }
                   else {// String or Number
                     distractorAnswers[ans.toString()] = data[x.toString()]['answers'][ans]['answer_text'];
@@ -799,7 +811,7 @@ Delete storage    </button>
               
               if (!allEmpty) {
                 printResults(results, null, explanation, 1);
-                calculateMark(data[x.toString()], x.toString(), null, 1, nCorrects, null);
+                userPoints += calculateMark(data[x.toString()], x.toString(), null, 1, nCorrects, null);
               }
             }
             
@@ -815,7 +827,7 @@ Delete storage    </button>
                   id = $("#" + x.toString() + " :checked").attr('id');
                   printResults(id, 0, data[x.toString()]['answers'][id]['explanation'], 0);
                 }
-                calculateMark(data[x.toString()], x.toString(), correct, 2, null, null);
+                userPoints += calculateMark(data[x.toString()], x.toString(), correct, 2, null, null);
               }
             }
             
@@ -839,10 +851,6 @@ Delete storage    </button>
       
       function storeAnswers() {
         if(typeof(Storage) !== "undefined") {
-          // Store
-          //localStorage.lastname = "Smith";
-          // Retrieve
-          //document.getElementById("storage").innerHTML=localStorage.lastname;
           inputText = $('input:text').filter(function() { return $(this).val() != ""; });
           for (i = 0; i < inputText.length; i++) {
             idAnswer = inputText[i].id;
@@ -863,13 +871,12 @@ Delete storage    </button>
       
       function deleteAnswers() {
         localStorage.clear();
-        alert("Local storage deleted");
+        alert(i18n[language]['alerts']['storage']);
       }
       
-      if (typeof(codehelper_ip) == "undefined")
-        language = "EN";
-      else
-        language = codehelper_ip.Country;
+      function showTotalScore() {
+        $("#score").html(i18n[language]['questions']['score'] + ": " + userPoints.toFixed(2) + "/" + totalPoints.toFixed(2) + " " + i18n[language]['questions']['points'])
+      }
       
       $("#submit").click(function() {
         checkAnswers();
@@ -883,14 +890,16 @@ Delete storage    </button>
           $("#submit").detach();
         
         storeAnswers();
+        showTotalScore();
       });
 
       $("#reset").click(function() {
         window.location.reload();
       });
       
-      $("#deletestorage").click(function() {
+      $("#deleteStorage").click(function() {
         deleteAnswers();
+        window.location.reload();
       });
       
       $(document).ready(function() {
